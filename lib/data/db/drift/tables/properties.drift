@@ -1,0 +1,21 @@
+CREATE TABLE properties (
+  id INTEGER NOT NULL PRIMARY KEY,
+  property_name TEXT NOT NULL,
+  display_name TEXT NOT NULL,
+  property_type TEXT NOT NULL,
+  accommodation_type TEXT NOT NULL,
+  locality TEXT NOT NULL,
+  city TEXT NOT NULL,
+  rent_amount TEXT NOT NULL,
+  distance REAL NOT NULL,
+  owner_first_name TEXT NOT NULL,
+  owner_last_name TEXT NOT NULL,
+  owner_mobile_number TEXT NOT NULL
+);
+
+getProperty: SELECT * FROM properties WHERE id = ?;
+getAllProperties: SELECT * FROM properties;
+getPropertiesByCity: SELECT * FROM properties WHERE city = ?;
+getPropertiesByLocality: SELECT * FROM properties WHERE locality = ?;
+insertProperty: INSERT OR REPLACE INTO properties VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+deleteProperty: DELETE FROM properties WHERE id = ?;

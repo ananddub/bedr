@@ -1,0 +1,36 @@
+# Get Properties with filters (search properties)
+GET https://api.bedrindia.com/v1/properties?latitude=19.0759559&longitude=72.8776378&radius=50&page=1&limit=10&gender=boys&propertyType=pg&roomType=sharing-2&minBudget=10000&maxBudget=50000&_t=1763244985742
+
+###
+
+# Get Recommended Properties (personalized recommendations)
+POST https://api.bedrindia.com/v1/properties/recommended-properties
+Accept: application/json, text/plain, */*
+Connection: keep-alive
+Content-Type: application/json
+Cookie: _gcl_au=1.1.245632763.1763242928; _ga=GA1.1.1062249149.1763242929; _clck=187zr5o^2^g11^0^2145; _fbp=fb.1.1763242929602.949149493300034585; intercom-id-gjr5o4nu=e43e2f1b-c9c5-4c82-88be-236f5481232d;
+
+###
+
+# Get User Info (current user details)
+GET https://api.bedrindia.com/v1/users/userInfo
+
+###
+
+# Get Top Properties (featured/popular properties)
+GET https://api.bedrindia.com/v1/properties/top-properties?limit=6&_t=1763243114836
+
+###
+
+# Get Image (property image URL)
+GET https://www.bedrindia.com/_next/image?url=file_
+
+###
+
+# Get Property Details (single property full details)
+GET https://api.bedrindia.com/v1/properties/details/boys-pg-in-vile-parle-west-3
+
+###
+
+# Get Similar Properties (properties in same locality)
+GET https://api.bedrindia.com/v1/properties/similar-properties?locality=Vile+Parle+West&page=1&limit=10

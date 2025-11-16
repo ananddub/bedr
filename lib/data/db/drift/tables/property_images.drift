@@ -1,0 +1,13 @@
+CREATE TABLE property_images (
+  id TEXT NOT NULL PRIMARY KEY,
+  property_id INTEGER NOT NULL,
+  order_index INTEGER NOT NULL,
+  file_name TEXT NOT NULL,
+  prefix TEXT NOT NULL,
+  FOREIGN KEY (property_id) REFERENCES properties(id) ON DELETE CASCADE
+);
+
+getImagesByProperty: SELECT * FROM property_images WHERE property_id = ? ORDER BY order_index;
+insertImage: INSERT INTO property_images VALUES (?, ?, ?, ?, ?);
+deleteImage: DELETE FROM property_images WHERE id = ?;
+deleteImagesByProperty: DELETE FROM property_images WHERE property_id = ?;

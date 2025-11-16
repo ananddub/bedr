@@ -1,0 +1,14 @@
+CREATE TABLE cart (
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  property_id INTEGER NOT NULL,
+  room_id INTEGER NOT NULL,
+  added_at INTEGER NOT NULL,
+  FOREIGN KEY (property_id) REFERENCES properties(id) ON DELETE CASCADE,
+  FOREIGN KEY (room_id) REFERENCES rooms(id) ON DELETE CASCADE
+);
+
+getAllCartItems: SELECT * FROM cart ORDER BY added_at DESC;
+getCartItem: SELECT * FROM cart WHERE property_id = ? AND room_id = ?;
+insertCartItem: INSERT INTO cart (property_id, room_id, added_at) VALUES (?, ?, ?);
+deleteCartItem: DELETE FROM cart WHERE id = ?;
+clearCart: DELETE FROM cart;

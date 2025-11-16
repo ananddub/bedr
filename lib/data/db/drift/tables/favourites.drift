@@ -1,0 +1,13 @@
+CREATE TABLE favourites (
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  property_id INTEGER NOT NULL,
+  added_at INTEGER NOT NULL,
+  FOREIGN KEY (property_id) REFERENCES properties(id) ON DELETE CASCADE
+);
+
+getAllFavourites: SELECT * FROM favourites ORDER BY added_at DESC;
+getFavourite: SELECT * FROM favourites WHERE property_id = ?;
+isFavourite: SELECT COUNT(*) > 0 AS is_fav FROM favourites WHERE property_id = ?;
+insertFavourite: INSERT INTO favourites (property_id, added_at) VALUES (?, ?);
+deleteFavourite: DELETE FROM favourites WHERE property_id = ?;
+clearFavourites: DELETE FROM favourites;

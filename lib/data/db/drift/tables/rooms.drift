@@ -1,0 +1,16 @@
+CREATE TABLE rooms (
+  id INTEGER NOT NULL PRIMARY KEY,
+  property_id INTEGER NOT NULL,
+  name TEXT NOT NULL,
+  type TEXT NOT NULL,
+  is_ac_available INTEGER NOT NULL,
+  rent_amount TEXT NOT NULL,
+  security_deposit TEXT NOT NULL,
+  FOREIGN KEY (property_id) REFERENCES properties(id) ON DELETE CASCADE
+);
+
+getRoom: SELECT * FROM rooms WHERE id = ?;
+getRoomsByProperty: SELECT * FROM rooms WHERE property_id = ?;
+insertRoom: INSERT INTO rooms VALUES (?, ?, ?, ?, ?, ?, ?);
+deleteRoom: DELETE FROM rooms WHERE id = ?;
+deleteRoomsByProperty: DELETE FROM rooms WHERE property_id = ?;
